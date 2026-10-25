@@ -7,6 +7,20 @@ from datetime import date
 from typing import Any
 
 
+def filter_activity(
+    records: list[dict[str, Any]],
+    start_date: date | None = None,
+    end_date: date | None = None,
+) -> list[dict[str, Any]]:
+    """Return records whose dates fall within an inclusive optional range."""
+    return [
+        record
+        for record in records
+        if (start_date is None or date.fromisoformat(record["date"]) >= start_date)
+        and (end_date is None or date.fromisoformat(record["date"]) <= end_date)
+    ]
+
+
 def summarize_activity(records: list[dict[str, Any]]) -> dict[str, Any]:
     """Aggregate validated records into report-friendly statistics."""
     daily: Counter[str] = Counter()

@@ -52,6 +52,9 @@ python -m activity_planner --input examples/activity.json --format markdown --ou
 
 # Read CSV input
 python -m activity_planner --input examples/activity.csv --format markdown
+
+# Summarize an inclusive date range (either --from or --to may be used alone)
+python -m activity_planner --input examples/activity.json --from 2026-10-14 --to 2026-10-20
 ~~~
 
 ## Run tests
